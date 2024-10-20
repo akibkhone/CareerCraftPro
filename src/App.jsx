@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Text, FileText, Mail,MapPin, Phone, Check, Send, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Menu, X, FileText, Mail, MapPin, Phone, Check, Eye, Send, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import emailjs from 'emailjs-com';
+
+// Import your images here
 import a from './assets/1.jpg';
 import b from './assets/2.jpg';
 import c from './assets/3.jpg';
-import d from './assets/4.jpg';
 import e from './assets/5.jpg';
-import f from './assets/6.jpg';
-import g from './assets/7.jpg';
-import h from './assets/8.jpg';
 import logo from './assets/icon.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const form = useRef();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,34 +46,52 @@ function App() {
     setIsMenuOpen(false);
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_USER_ID')
+      .then((result) => {
+        console.log(result.text);
+        setShowThankYou(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      }, (error) => {
+        console.log(error.text);
+      });
+  };
+
   return (
-    <div className="bg-gray-900 text-gray-100 min-h-screen">
+    <div className="bg-pattern text-gray-100 min-h-screen">
       <nav className="fixed w-full z-50 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-  <a href="#" className="flex items-center text-white font-bold text-xl">
-    <img src={logo} alt="CareerCraft Pro Logo" className="h-8 w-8 mr-2" /> {/* Adjust size as needed */}
-    CareerCraft Pro
-  </a>
-  <div className="hidden md:flex space-x-4">
-    {['Home', 'About', 'Services', 'Pricing', 'Templates', 'Contact'].map((item) => (
-      <a
-        key={item}
-        href={`#${item.toLowerCase()}`}
-        onClick={() => scrollTo(item.toLowerCase())}
-        className={`text-sm uppercase ${activeSection === item.toLowerCase() ? 'text-blue-500' : 'text-gray-300 hover:text-white'}`}
-      >
-        {item}
-      </a>
-    ))}
-  </div>
-  <button
-    className="md:hidden text-gray-300 hover:text-white focus:outline-none"
-    onClick={() => setIsMenuOpen(!isMenuOpen)}
-  >
-    {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-  </button>
-</div>
+          <div className="flex items-center justify-between h-16">
+            <a href="#" className="flex items-center text-white font-bold text-xl">
+              <img src={logo} alt="CareerCraft Pro Logo" className="h-8 w-8 mr-2" />
+              CareerCraft Pro
+            </a>
+            <div className="hidden md:flex space-x-4">
+              {['Home', 'About', 'Services', 'Pricing', 'Templates', 'Contact'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => scrollTo(item.toLowerCase())}
+                  className={`text-sm uppercase ${activeSection === item.toLowerCase() ? 'text-blue-500' : 'text-gray-300 hover:text-white'}`}
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+            <button
+              className="md:hidden text-gray-300 hover:text-white focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -148,25 +168,25 @@ function App() {
               />
             </div>
             <div className="md:w-1/2 md:pl-12">
-  <h2 className="text-4xl font-bold mb-6">About CareerCraft Pro</h2>
-  <p className="text-lg mb-6">
-    We are a small team of professional career consultants with expertise in CV/Resume creation, Cover Letter writing, and LinkedIn profile optimization. Our mission is to help you stand out in the competitive job market and achieve your career goals.
-  </p>
-  <ul className="space-y-4">
-    <li className="flex items-center">
-      <Phone className="mr-4 text-blue-500" />
-      <span>+91 9834539885</span>
-    </li>
-    <li className="flex items-center">
-      <Mail className="mr-4 text-blue-500" />
-      <span>akibkhone@gmail.com</span>
-    </li>
-    <li className="flex items-center">
-      <MapPin className="mr-4 text-blue-500" /> {/* Add the address icon here */}
-      <span>Dubai, United Arab Emirates</span> {/* Updated text */}
-    </li>
-  </ul>
-</div>
+              <h2 className="text-4xl font-bold mb-6">About CareerCraft Pro</h2>
+              <p className="text-lg mb-6">
+                We are a small team of professional career consultants with expertise in CV/Resume creation, Cover Letter writing, and LinkedIn profile optimization. Our mission is to help you stand out in the competitive job market and achieve your career goals.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-center">
+                  <Phone className="mr-4 text-blue-500" />
+                  <span>+91 9834539885</span>
+                </li>
+                <li className="flex items-center">
+                  <Mail className="mr-4 text-blue-500" />
+                  <span>akibkhone@gmail.com</span>
+                </li>
+                <li className="flex items-center">
+                  <MapPin className="mr-4 text-blue-500" />
+                  <span>Dubai, United Arab Emirates</span>
+                </li>
+              </ul>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -193,7 +213,7 @@ function App() {
               </motion.div>
             ))}
           </div>
-        </ div>
+        </div>
       </section>
 
       <section id="pricing" className="py-20 bg-gray-800">
@@ -201,9 +221,9 @@ function App() {
           <h2 className="text-4xl font-bold mb-12 text-center">Pricing Plans</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Basic', price: 'AED 15', features: ['Professional CV/Resume', '1 Revision', '24/7 Support'] },
-              { title: 'Pro', price: 'AED 25', features: ['Professional CV/Resume', 'Cover Letter', 'LinkedIn Profile Optimization', '3 Revisions', '24/7 Priority Support'] },
-              { title: 'Premium', price: 'AED 35', features: ['Professional CV/Resume', 'Cover Letter', 'LinkedIn Profile Optimization', 'Job Application Assistance', 'Unlimited Revisions', '24/7 VIP Support'] }
+              { title: 'Basic', price: 'AED 29', features: ['Professional CV/Resume', '1 Revision', '24/7 Support'] },
+              { title: 'Pro', price: 'AED 49', features: ['Professional CV/Resume', 'Cover Letter', 'LinkedIn Profile Optimization', '3 Revisions', '24/7 Priority Support'] },
+              { title: 'Premium', price: 'AED 99', features: ['Professional CV/Resume', 'Cover Letter', 'LinkedIn Profile Optimization', 'Job Optimization Training', 'Unlimited Revisions', '24/7 VIP Support'] }
             ].map((plan, index) => (
               <motion.div
                 key={index}
@@ -256,7 +276,7 @@ function App() {
                     style={{ objectFit: 'cover' }}
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    {/* Removed button and added hover effect */}
+                    {/* Hover effect */}
                   </div>
                 </div>
                 <div className="p-4 flex-1">
@@ -268,10 +288,9 @@ function App() {
         </div>
       </section>
 
-      {/* Modal Component */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <img src={selectedImage} alt="Preview" className="max-w-full max-h-full" />
+          <img src={selectedImage} alt="Preview" className="max-w-full  max-h-full" />
           <button onClick={() => setSelectedImage(null)} className="absolute top-5 right-5 text-white text-xl">✖</button>
         </div>
       )}
@@ -285,7 +304,7 @@ function App() {
             transition={{ duration: 0.5 }}
             className="max-w-lg mx-auto"
           >
-            <form className="bg-gray-900 p-8 rounded-lg shadow-lg">
+            <form ref={form} onSubmit={sendEmail} className="bg-gray-900 p-8 rounded-lg shadow-lg">
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Your Name
@@ -294,11 +313,13 @@ function App() {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
-              <div className="mb-4 ">
+              <div className="mb-4">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Your Email
                 </label>
@@ -306,6 +327,22 @@ function App() {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Your Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
@@ -317,6 +354,8 @@ function App() {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4}
                   className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
@@ -357,6 +396,7 @@ function App() {
           </div>
         </div>
       </footer>
+
       <a
         href="https://wa.me/919834539885"
         target="_blank"
@@ -365,6 +405,33 @@ function App() {
       >
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="h-12 w-12" />
       </a>
+
+      <AnimatePresence>
+        {showThankYou && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.8, y: 50 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.8, y: 50 }}
+              className="bg-white text-gray-900 p-8 rounded-lg shadow-xl max-w-md w-full mx-4"
+            >
+              <h3 className="text-2xl font-bold mb-4 text-center">Thank You!</h3>
+              <p className="mb-6 text-center">Your message has been sent successfully. We'll get back to you soon.</p>
+              <button
+                onClick={() => setShowThankYou(false)}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
