@@ -66,7 +66,7 @@ function App() {
 
   return (
     <div className="bg-pattern text-gray-100 min-h-screen">
-      <nav className="fixed w-full z-50 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg">
+      <nav className="fixed w-full z-50 bg-[#1d1d1d] bg-opacity-90 backdrop-filter backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <a href="#" className="flex items-center text-white font-bold text-xl">
@@ -79,7 +79,7 @@ function App() {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => scrollTo(item.toLowerCase())}
-                  className={`text-sm uppercase ${activeSection === item.toLowerCase() ? 'text-blue-500' : 'text-gray-300 hover:text-white'}`}
+                  className={`text-sm uppercase ${activeSection === item.toLowerCase() ? 'text-[#4e4f51]' : 'text-gray-300 hover:text-white'}`}
                 >
                   {item}
                 </a>
@@ -101,7 +101,7 @@ function App() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95"
+            className="md:hidden fixed inset-0 z-40 bg-[#1d1d1d] bg-opacity-95"
           >
             <div className="flex flex-col items-center justify-center h-full space-y-8">
               {['Home', 'About', 'Services', 'Pricing', 'Templates', 'Contact'].map((item) => (
@@ -144,7 +144,7 @@ function App() {
           >
             <a
               href="#contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-[#4e4f51] hover:bg-[#3c3c3c] text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
             >
               Get Started
             </a>
@@ -152,7 +152,7 @@ function App() {
         </div>
       </section>
 
-      <section id="about" className="py-20 bg-gray-800">
+      <section id="about" className="py-20 bg-[#1d1d1d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -174,15 +174,15 @@ function App() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <Phone className="mr-4 text-blue-500" />
+                  <Phone className="mr-4 text-[#4e4f51]" />
                   <span>+91 9834539885</span>
                 </li>
                 <li className="flex items-center">
-                  <Mail className="mr-4 text-blue-500" />
+                  <Mail className="mr-4 text-[#4e4f51]" />
                   <span>akibkhone@gmail.com</span>
                 </li>
                 <li className="flex items-center">
-                  <MapPin className="mr-4 text-blue-500" />
+                  <MapPin className="mr-4 text-[#4e4f51]" />
                   <span>Dubai, United Arab Emirates</span>
                 </li>
               </ul>
@@ -191,21 +191,21 @@ function App() {
         </div>
       </section>
 
-      <section id="services" className="py-20 bg-gray-900">
+      <section id="services" className="py-20 bg-[#3c3c3c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: <FileText className="w-12 h-12 text-blue-500" />, title: 'CV/Resume Creator', description: 'Professional CV/Resume tailored to your industry and career goals.' },
-              { icon: <Mail className="w-12 h-12 text-blue-500" />, title: 'Cover Letter Writing', description: 'Compelling cover letters that highlight your unique value proposition.' },
-              { icon: <Linkedin className="w-12 h-12 text-blue-500" />, title: 'LinkedIn Optimization', description: 'Enhance your LinkedIn profile to attract recruiters and opportunities.' }
+              { icon: <FileText className="w-12 h-12 text-[#4e4f51]" />, title: 'CV/Resume Creator', description: 'Professional CV/Resume tailored to your industry and career goals.' },
+              { icon: <Mail className="w-12 h-12 text-[#4e4f51]" />, title: 'Cover Letter Writing', description: 'Compelling cover letters that highlight your unique value proposition.' },
+              { icon: <Linkedin className="w-12 h-12 text-[#4e4f51]" />, title: 'LinkedIn Optimization', description: 'Enhance your LinkedIn profile to attract recruiters and opportunities.' }
             ].map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-[#1d1d1d] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="flex justify-center mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-2 text-center">{service.title}</h3>
@@ -216,7 +216,7 @@ function App() {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 bg-gray-800">
+      <section id="pricing" className="py-20 bg-[#1d1d1d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center">Pricing Plans</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -230,19 +230,19 @@ function App() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-[#3c3c3c] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <h3 className="text-2xl font-bold text-center mb-4">{plan.title}</h3>
-                <p className="text-4xl font-bold text-center text-blue-500 mb-6">{plan.price}</p>
+                <p className="text-4xl font-bold text-center text-[#4e4f51] mb-6">{plan.price}</p>
                 <ul className="space-y-2 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
-                      <Check className="w-5 h-5 text-green-500 mr-2" />
+                      <Check className="w-5 h-5 text-[#4e4f51] mr-2" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                <button className="w-full bg-[#4e4f51] hover:bg-[#3c3c3c] text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
                   Get Started
                 </button>
               </motion.div>
@@ -251,7 +251,7 @@ function App() {
         </div>
       </section>
 
-      <section id="templates" className="py-20 bg-gray-900">
+      <section id="templates" className="py-20 bg-[#3c3c3c]">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center">CV Templates</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -265,7 +265,7 @@ function App() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
+                className="bg-[#1d1d1d] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
                 onClick={() => setSelectedImage(template.image)}
               >
                 <div className="relative h-full flex-1">
@@ -278,6 +278,7 @@ function App() {
                   <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     {/* Hover effect */}
                   </div>
+                
                 </div>
                 <div className="p-4 flex-1">
                   <h3 className="text-xl font-semibold text-center">{template.title}</h3>
@@ -290,12 +291,12 @@ function App() {
 
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <img src={selectedImage} alt="Preview" className="max-w-full  max-h-full" />
+          <img src={selectedImage} alt="Preview" className="max-w-full max-h-full" />
           <button onClick={() => setSelectedImage(null)} className="absolute top-5 right-5 text-white text-xl">✖</button>
         </div>
       )}
 
-      <section id="contact" className="py-20 bg-gray-800">
+      <section id="contact" className="py-20 bg-[#1d1d1d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center">Get in Touch</h2>
           <motion.div
@@ -304,7 +305,7 @@ function App() {
             transition={{ duration: 0.5 }}
             className="max-w-lg mx-auto"
           >
-            <form ref={form} onSubmit={sendEmail} className="bg-gray-900 p-8 rounded-lg shadow-lg">
+            <form ref={form} onSubmit={sendEmail} className="bg-[#3c3c3c] p-8 rounded-lg shadow-lg">
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Your Name
@@ -315,7 +316,7 @@ function App() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-[#1d1d1d] border border-[#4e4f51] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#4e4f51]"
                   required
                 />
               </div>
@@ -329,7 +330,7 @@ function App() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-[#1d1d1d] border border-[#4e4f51] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#4e4f51]"
                   required
                 />
               </div>
@@ -343,7 +344,7 @@ function App() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-[#1d1d1d] border border-[#4e4f51] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#4e4f51]"
                   required
                 />
               </div>
@@ -357,13 +358,13 @@ function App() {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-[#1d1d1d] border border-[#4e4f51] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#4e4f51]"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
+                className="w-full bg-[#4e4f51] hover:bg-[#3c3c3c] text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
               >
                 <Send className="w-5 h-5 mr-2" />
                 Send Message
@@ -373,7 +374,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="bg-gray-900 py-8">
+      <footer className="bg-[#3c3c3c] py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-center md:text-left mb-4 md:mb-0">
@@ -424,7 +425,7 @@ function App() {
               <p className="mb-6 text-center">Your message has been sent successfully. We'll get back to you soon.</p>
               <button
                 onClick={() => setShowThankYou(false)}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out"
+                className="w-full bg-[#4e4f51] hover:bg-[#3c3c3c] text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out"
               >
                 Close
               </button>
