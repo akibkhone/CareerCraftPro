@@ -175,11 +175,11 @@ function App() {
               <ul className="space-y-4">
                 <li className="flex items-center">
                   <Phone className="mr-4 text-[#4e4f51]" />
-                  <span>+91 9834539885</span>
+                  <span>+91 9168422339</span>
                 </li>
                 <li className="flex items-center">
                   <Mail className="mr-4 text-[#4e4f51]" />
-                  <span>akibkhone@gmail.com</span>
+                  <span>yourcareerspark@gmail.com</span>
                 </li>
                 <li className="flex items-center">
                   <MapPin className="mr-4 text-[#4e4f51]" />
