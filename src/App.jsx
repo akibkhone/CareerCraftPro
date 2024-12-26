@@ -51,19 +51,19 @@ function App() {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  
-const sendEmail = (e) => {
-    e.preventDefault();
+
+  const sendEmail = (e) => {
+    e.preventDefault(); // Prevent the default form submission
 
     emailjs.sendForm('service_556i82v', 'template_aou968r', form.current, 'YOUR_USER_ID')
       .then((result) => {
         console.log(result.text);
-        setShowThankYou(true);
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setShowThankYou(true); // Show thank you message
+        setFormData({ name: '', email: '', phone: '', message: '' }); // Reset form data
       }, (error) => {
-        console.log(error.text);
+        console.log(error.text); // Log any errors
       });
-  };
+};
 
 
   return (
