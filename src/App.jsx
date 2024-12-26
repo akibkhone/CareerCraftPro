@@ -216,7 +216,7 @@ function App() {
         </div>
       </section>
 
-<section id="pricing" className="py-20 bg-[#1d1d1d]">
+      <section id="pricing" className="py-20 bg-[#1d1d1d]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 className="text-4xl font-bold text-center text-white mb-12">Our Pricing Plans</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -226,30 +226,35 @@ function App() {
           originalPrice: '190 AED',
           discountedPrice: '60 AED',
           description: 'Start from',
+          message: 'Hi, I am interested to go for CV/Resume Writing.',
         },
         {
           title: 'Cover Letter',
           originalPrice: '100 AED',
           discountedPrice: '30 AED',
           description: 'Start from',
+          message: 'Hi, I am interested to go for Cover Letter services.',
         },
         {
           title: 'LinkedIn Profile',
           originalPrice: '250 AED',
           discountedPrice: '60 AED',
           description: 'Start from',
+          message: 'Hi, I am interested to go for LinkedIn Profile services.',
         },
         {
           title: 'Personal Website Portfolio',
           originalPrice: '750 AED',
           discountedPrice: '299 AED',
           description: 'Start from',
+          message: 'Hi, I am interested to go for Personal Website Portfolio services.',
         },
         {
           title: 'One to One Consultation',
           originalPrice: '200 AED',
           discountedPrice: '69 AED (60 Mins)',
           description: 'Start from',
+          message: 'Hi, I am interested to go for One to One Consultation services.',
         },
       ].map((plan, index) => (
         <motion.div
@@ -257,7 +262,7 @@ function App() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+          className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center"
         >
           <h3 className="text-lg font-bold text-gray-800">{plan.title}</h3>
           <p className="text-sm text-gray-400 line-through mt-2">{plan.originalPrice}</p>
@@ -265,9 +270,14 @@ function App() {
             {plan.description}
           </div>
           <p className="text-2xl font-bold text-gray-800 mt-4">{plan.discountedPrice}</p>
-          <button className="bg-yellow-500 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-600">
+          <a
+            href={`https://wa.me/919168422339?text=${encodeURIComponent(plan.message)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-yellow-500 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-600"
+          >
             Order now
-          </button>
+          </a>
         </motion.div>
       ))}
     </div>
