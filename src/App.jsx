@@ -8,7 +8,7 @@ import a from './assets/1.jpg';
 import b from './assets/2.jpg';
 import c from './assets/3.jpg';
 import e from './assets/5.jpg';
-import logo from './assets/icon.png';
+import logo from './assets/favicon.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
