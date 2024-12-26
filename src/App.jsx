@@ -52,10 +52,10 @@ function App() {
   };
 
 
-  const sendEmail = (e) => {
+const sendEmail = (e) => {
     e.preventDefault(); // Prevent the default form submission
 
-    emailjs.sendForm('service_556i82v', 'template_aou968r', form.current, 'YOUR_USER_ID')
+    emailjs.sendForm('service_556i82v', 'template_aou968r', form.current, '9iRrzUl3O7klsFxoC') // Use your Public Key here
       .then((result) => {
         console.log(result.text);
         setShowThankYou(true); // Show thank you message
