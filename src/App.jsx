@@ -252,7 +252,7 @@ const sendEmail = (e) => {
           message: 'Hi, I am interested to go for Personal Website Portfolio services.',
         },
       {
-          title: 'Personal Consultation',
+          title: 'Personal Consultation by Expert',
           originalPrice: '500 AED',
           discountedPrice: '99 AED (50 Minutes)',
           description: 'Start from',
