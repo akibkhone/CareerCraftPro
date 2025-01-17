@@ -238,7 +238,7 @@ const sendEmail = (e) => {
           message: 'Hi, I am interested to go for Cover Letter services.',
         },
         {
-          title: 'LinkedIn Profile',
+          title: 'LinkedIn Profile Optimization',
           originalPrice: '250 AED',
           discountedPrice: '99 AED',
           description: 'Start from',
