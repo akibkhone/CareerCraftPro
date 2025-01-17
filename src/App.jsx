@@ -177,11 +177,11 @@ const sendEmail = (e) => {
               <ul className="space-y-4">
                 <li className="flex items-center">
                   <Phone className="mr-4 text-[#4e4f51]" />
-                  <span>+91 9168422339</span>
+                  <span>+971 502399335</span>
                 </li>
                 <li className="flex items-center">
                   <Mail className="mr-4 text-[#4e4f51]" />
-                  <span>yourcareerspark@gmail.com</span>
+                  <span>imalik.dxb@gmail.com</span>
                 </li>
                 <li className="flex items-center">
                   <MapPin className="mr-4 text-[#4e4f51]" />
@@ -273,7 +273,7 @@ const sendEmail = (e) => {
           </div>
           <p className="text-2xl font-bold text-gray-800 mt-4">{plan.discountedPrice}</p>
           <a
-            href={`https://wa.me/919168422339?text=${encodeURIComponent(plan.message)}`}
+            href={`https://wa.me/971502399335?text=${encodeURIComponent(plan.message)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-yellow-500 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-600"
@@ -436,7 +436,7 @@ const sendEmail = (e) => {
       </footer>
 
       <a
-        href="https://wa.me/919834539885"
+        href="https://wa.me/971502399335"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
