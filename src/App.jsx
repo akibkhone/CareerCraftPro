@@ -256,7 +256,7 @@ const sendEmail = (e) => {
           originalPrice: '500 AED',
           discountedPrice: '99 AED (50 Minutes)',
           description: 'Start from',
-          message: 'Hi, I am interested to go for One to One Consultation services.',
+          message: 'Hi, I am interested to go for Personal Consultation by Expert services.',
         },
       ].map((plan, index) => (
         <motion.div
