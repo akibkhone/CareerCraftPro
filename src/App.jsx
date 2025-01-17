@@ -137,7 +137,7 @@ const sendEmail = (e) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl mb-8"
           >
-            Professional CV, Resume, and LinkedIn optimization services
+            Professional CV, Resume, and LinkedIn Profile Optimization services
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -200,7 +200,7 @@ const sendEmail = (e) => {
             {[
               { icon: <FileText className="w-12 h-12 text-[#4e4f51]" />, title: 'CV/Resume Creator', description: 'Professional CV/Resume tailored to your industry and career goals.' },
               { icon: <Mail className="w-12 h-12 text-[#4e4f51]" />, title: 'Cover Letter Writing', description: 'Compelling cover letters that highlight your unique value proposition.' },
-              { icon: <Linkedin className="w-12 h-12 text-[#4e4f51]" />, title: 'LinkedIn Optimization', description: 'Enhance your LinkedIn profile to attract recruiters and opportunities.' }
+              { icon: <Linkedin className="w-12 h-12 text-[#4e4f51]" />, title: 'LinkedIn Profile Optimization', description: 'Enhance your LinkedIn profile to attract recruiters and opportunities.' }
             ].map((service, index) => (
               <motion.div
                 key={index}
@@ -251,10 +251,10 @@ const sendEmail = (e) => {
           description: 'Start from',
           message: 'Hi, I am interested to go for Personal Website Portfolio services.',
         },
-        {
-          title: 'One to One Consultation',
-          originalPrice: '200 AED',
-          discountedPrice: '49 AED (1 Hour)',
+      {
+          title: 'Personal Consultation',
+          originalPrice: '500 AED',
+          discountedPrice: '99 AED (50 Minutes)',
           description: 'Start from',
           message: 'Hi, I am interested to go for One to One Consultation services.',
         },
